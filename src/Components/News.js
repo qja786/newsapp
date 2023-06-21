@@ -12,7 +12,7 @@ export default class News extends Component {
   }
   componentDidMount() {
     fetch(  
-"https://newsapi.org/v2/top-headlines?country=in&apiKey=cb475762b09d446bb335985c3453faca")
+"https://newsapi.org/v2/top-headlines?country=in&pageSize=4&apiKey=cb475762b09d446bb335985c3453faca")
         .then((res) => res.json())
         .then((json) => {
             this.setState({
@@ -36,7 +36,11 @@ export default class News extends Component {
             </div>
           })}
         </div>
-       
+        <div className='d-flex justify-content-between'>
+          <button  type="button" class="btn btn-dark"> &larr; Previous</button>
+          <button type="button" class="btn btn-dark">Next &rarr;</button>
+        </div>
+        
       </div>
     )
   }
